@@ -10,6 +10,7 @@ public class Homework1Application {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(BeansConfig.class);
         context.getBean(Pet.class).printPets();
+
     }
 
 }
