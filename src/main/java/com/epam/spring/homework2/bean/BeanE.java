@@ -3,9 +3,7 @@ package com.epam.spring.homework2.bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanE {
-    private String name;
-    private String value;
+public class BeanE extends EntityBean {
 
     public String getName() {
         return name;

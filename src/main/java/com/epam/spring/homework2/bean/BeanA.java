@@ -1,11 +1,11 @@
 package com.epam.spring.homework2.bean;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanA {
-    private String name;
-    private String value;
+public class BeanA extends EntityBean implements InitializingBean, DisposableBean {
 
     public String getName() {
         return name;
@@ -29,5 +29,15 @@ public class BeanA {
                 "name='" + name + '\'' +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Run method afterPropertiesSet in BeanA");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Run method destroy in BeanA");
     }
 }

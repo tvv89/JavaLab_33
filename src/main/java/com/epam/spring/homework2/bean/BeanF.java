@@ -1,11 +1,11 @@
 package com.epam.spring.homework2.bean;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+@Lazy
 @Component
-public class BeanF {
-    private String name;
-    private String value;
+public class BeanF extends EntityBean {
 
     public String getName() {
         return name;

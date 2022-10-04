@@ -1,16 +1,12 @@
 package com.epam.spring.homework2.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanD {
-    private String name;
-    private String value;
-
+public class BeanD extends EntityBean implements BeanLifeMethods{
     @Autowired
-    public BeanD(@Value("${bean.d.name}") String name, @Value("${bean.d.value}") String value) {
+    public BeanD(String name, String value) {
         this.name = name;
         this.value = value;
     }
@@ -37,5 +33,15 @@ public class BeanD {
                 "name='" + name + '\'' +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+    @Override
+    public void init() {
+        System.out.println("init: " + this);
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy BeanD");
     }
 }

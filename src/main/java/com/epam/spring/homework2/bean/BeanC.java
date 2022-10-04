@@ -5,12 +5,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanC {
-    private String name;
-    private String value;
+public class BeanC extends EntityBean implements BeanLifeMethods{
 
     @Autowired
-    public BeanC(@Value("${bean.c.name}") String name, @Value("${bean.c.value}") String value) {
+    public BeanC(String name, String value) {
         this.name = name;
         this.value = value;
     }
@@ -37,5 +35,15 @@ public class BeanC {
                 "name='" + name + '\'' +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+    @Override
+    public void init() {
+        System.out.println("init: " + this);
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy BeanC");
     }
 }
