@@ -2,24 +2,11 @@ package com.epam.spring.homework2.bean;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class BeanE extends EntityBean {
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 
     @Override
     public String toString() {
@@ -27,5 +14,15 @@ public class BeanE extends EntityBean {
                 "name='" + name + '\'' +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("@PostConstruct method BeanE");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("@PreDestroy method BeanE");
     }
 }

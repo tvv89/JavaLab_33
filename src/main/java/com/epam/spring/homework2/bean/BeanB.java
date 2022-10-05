@@ -12,22 +12,6 @@ public class BeanB extends EntityBean implements BeanLifeMethods {
         this.value = value;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
     @Override
     public String toString() {
         return "BeanB{" +
@@ -41,6 +25,9 @@ public class BeanB extends EntityBean implements BeanLifeMethods {
         System.out.println("init: " + this);
     }
 
+    public void secondInit() {
+        System.out.println("second init: " + this);
+    }
     @Override
     public void destroy() {
         System.out.println("destroy BeanB");
